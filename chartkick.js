@@ -351,6 +351,7 @@
     renderLineChart = function(element, series, opts) {
       waitForLoaded(function() {
         var options = jsOptions(series, opts);
+        jQuery.extend(options, opts);
         var data = createDataTable(series, "datetime");
         var chart = new google.visualization.LineChart(element);
         chart.draw(data, options);
@@ -364,6 +365,7 @@
           top: "10%",
           height: "80%"
         };
+        jQuery.extend(options, opts);
 
         var data = new google.visualization.DataTable();
         data.addColumn("string", "");
@@ -378,6 +380,7 @@
     renderColumnChart = function(element, series, opts) {
       waitForLoaded(function() {
         var options = jsOptions(series, opts);
+        jQuery.extend(options, opts);
         var data = createDataTable(series, "string");
         var chart = new google.visualization.ColumnChart(element);
         chart.draw(data, options);
